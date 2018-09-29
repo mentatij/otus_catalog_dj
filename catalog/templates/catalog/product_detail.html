@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <div class="header__breadcrumbs"><a href="{{ product.category.get_absolute_url }}">
+        {{ product.category }} (вверх на один уровень)
+    </a></div>
+    <h1 class="header__title">{{ product.title }}</h1>
+{% endblock %}
+
+{% block content %}
+<div class="product-full-card">
+    <div class="product-full-card__img-preview">
+        <img src="{{ product.image.url }}">
+    </div>
+    <div class="product-full-card__description">
+
+        {{ product.full_description|safe }}
+    </div>
+    <div class="product-full-card__price">
+        {{ product.price }} &#8381;
+    </div>
+</div>
+{% endblock %}

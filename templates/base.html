@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Catalog</title>
+</head>
+<body>
+<div class="main">
+    <header>
+        {% block header %}
+            <div class="header__breadcrumbs">Breadcrumbs</div>
+            <div class="header__title">Object title</div>
+        {% endblock %}
+    </header>
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</div>
+</body>
+</html>
