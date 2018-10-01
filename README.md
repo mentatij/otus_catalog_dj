@@ -2,7 +2,7 @@
 Simple catalog  made on Django
 
 ###Access Parameters:
-* Admin token: admin/qwerty
+* Admin login/password: admin/qwerty
 * Data Base access and SECRET_KEY are in dj_blog/setting.py
 
 ###Installation:
