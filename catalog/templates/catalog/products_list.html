@@ -2,18 +2,26 @@
 
 {% block header %}
     {% if category.parent_category %}
-    <div class="header__breadcrumbs">
-        <a href="{{ category.parent_category.get_absolute_url }}">
-        {{ category }} (вверх на один уровень)
-        </a>
-    </div>
+        <div class="header__breadcrumbs">
+            <a href="{{ category.parent_category.get_absolute_url }}">
+                {{ category }} (вверх на один уровень)
+            </a>
+        </div>
     {% endif %}
-    <h1 class="header__title">{{ category.title }}</h1>
+    <h1 class="header__title">
+        {{ category.title }}
+    </h1>
     {% if category.subcategories.all %}
-        <h4>Подкатегории:</h4>
+        <h4>
+            Подкатегории:
+        </h4>
         <ul>
             {% for subcategory in category.subcategories.all %}
-                <li><a href="{{ subcategory.get_absolute_url }}">{{ subcategory.title }}</a></li>
+                <li>
+                    <a href="{{ subcategory.get_absolute_url }}">
+                        {{ subcategory.title }}
+                    </a>
+                </li>
             {% endfor %}
         </ul>
     {%  endif %}
@@ -21,22 +29,23 @@
 
 {% block content %}
     {%  if category.category_items %}
-    {% for item in category.category_items.all %}
-        <div class="product-preview-card">
-            <div class="product-preview-card__title">
-                <a href="{{ item.get_absolute_url }}">{{ item.title }}</a>
+        {% for item in category.category_items.all %}
+            <div class="product-preview-card">
+                <div class="product-preview-card__title">
+                    <a href="{{ item.get_absolute_url }}">
+                        {{ item.title }}
+                    </a>
+                </div>
+                <div class="product-preview-card__price">
+                    {{ item.price }} &#8381;
+                </div>
+                <div class="product-preview-card__img-preview">
+                    <img src="{{ item.image.url }}">
+                </div>
+                <div class="product-preview-card__description">
+                    {{ item.short_description|safe }}
+                </div>
             </div>
-            <div class="product-preview-card__price">
-                {{ item.price }} &#8381;
-            </div>
-            <div class="product-preview-card__img-preview">
-                <img src="{{ item.image.url }}">
-            </div>
-            <div class="product-preview-card__description">
-
-                {{ item.short_description|safe }}
-            </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
     {% endif %}
 {% endblock %}
