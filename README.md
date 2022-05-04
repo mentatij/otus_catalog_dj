@@ -1,11 +1,11 @@
 # otus_catalog_dj
 Simple catalog  made on Django
 
-###Access Parameters:
+### Access Parameters:
 * Admin login/password: admin/qwerty
 * Data Base access and SECRET_KEY are in dj_blog/setting.py
 
-###Installation:
+### Installation:
 1. clone repository
 ```commandline
 git clone https://github.com/mentatij/otus_catalog_dj.git
